@@ -1,0 +1,17 @@
+.products-ul {
+  display: flex;
+  overflow-x: scroll;
+  margin-top: 35px;
+  margin-left: 15px;
+}
+
+.products-ul::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 955px) {
+  .products-ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

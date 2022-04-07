@@ -1,0 +1,7 @@
+@media (min-width: 955px) {
+  .divisionProdCart-div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 45px 0 45px;
+  }
+}
