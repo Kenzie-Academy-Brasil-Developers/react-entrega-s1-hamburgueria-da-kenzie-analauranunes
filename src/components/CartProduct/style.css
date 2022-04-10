@@ -45,6 +45,12 @@
   font-size: 10px;
 }
 
+.cart-quantity {
+  color: rgba(130, 130, 130, 1);
+  font-weight: 400;
+  font-size: 12px;
+}
+
 .remove-button {
   color: rgba(189, 189, 189, 1);
   font-weight: 500;

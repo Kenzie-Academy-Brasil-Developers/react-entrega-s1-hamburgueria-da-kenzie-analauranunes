@@ -17,7 +17,7 @@ function App() {
       const response = await axios(
         "https://hamburgueria-kenzie-json-serve.herokuapp.com/products"
       );
-
+      response.data.map((el) => (el.quantity = 0));
       setProducts(response.data);
     }
     dataApi();
@@ -29,7 +29,11 @@ function App() {
     const includesItem = cartProduct.includes(findProduct);
 
     if (!includesItem) {
+      findProduct.quantity = 1;
       setCartProduct([...cartProduct, findProduct]);
+    } else {
+      findProduct.quantity += 1;
+      setCartProduct([...cartProduct]);
     }
   };
 
@@ -42,8 +46,13 @@ function App() {
   };
 
   const removeProduct = (idProduct) => {
-    const removedList = cartProduct.filter((el) => el.id !== idProduct);
-    setCartProduct(removedList);
+    if (idProduct.quantity > 1) {
+      idProduct.quantity -= 1;
+      setCartProduct([...cartProduct]);
+    } else {
+      const removedList = cartProduct.filter((el) => el.id !== idProduct.id);
+      setCartProduct(removedList);
+    }
   };
 
   const removeAll = () => {
@@ -73,9 +82,17 @@ function App() {
       </Header>
       <div className="divisionProdCart-div">
         {filterProducts.length > 0 ? (
-          <ProductsList products={filterProducts} handleClick={handleClick} />
+          <ProductsList
+            products={filterProducts}
+            handleClick={handleClick}
+            cartProduct={cartProduct}
+          />
         ) : (
-          <ProductsList products={products} handleClick={handleClick} />
+          <ProductsList
+            products={products}
+            handleClick={handleClick}
+            cartProduct={cartProduct}
+          />
         )}
         <Cart
           cartProduct={cartProduct}

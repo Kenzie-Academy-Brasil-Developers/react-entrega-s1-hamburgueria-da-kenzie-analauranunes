@@ -32,11 +32,12 @@ export const CartProduct = ({ cartProduct, removeProduct }) => {
             </>
           )}
           <p className="cart-category">{cartProduct.category}</p>
+          <p className="cart-quantity">{cartProduct.quantity}x</p>
         </div>
       </div>
       <div>
         <button
-          onClick={() => removeProduct(cartProduct.id)}
+          onClick={() => removeProduct(cartProduct)}
           className="remove-button"
           id={cartProduct.id}
         >

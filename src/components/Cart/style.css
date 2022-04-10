@@ -79,6 +79,6 @@
 
 @media (min-width: 955px) {
   .cart-ul::-webkit-scrollbar {
-    display: block;
+    display: initial;
   }
 }

@@ -2,7 +2,7 @@ import "./style.css";
 
 export const CartTotal = ({ product, removeAll }) => {
   const total = product.reduce(
-    (lastValue, currValue) => lastValue + currValue.price,
+    (lastValue, currValue) => lastValue + currValue.price * currValue.quantity,
     0
   );
 
